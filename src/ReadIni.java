@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class ReadIni {
 	public static Hashtable<String, String> read_ini(String fileName) {
+		//you may use java class Properties instead of creating your own function
 		Hashtable<String, String> dbIni = new Hashtable<String, String>();
 		
 		try {
