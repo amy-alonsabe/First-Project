@@ -8,6 +8,8 @@ public class DeviceInfoController {
 		ArrayList<DeviceInfo> deviceInfoList = new ArrayList<>();
 		
 		try {
+			// you should handle the case when the app is not successfully connected to database (DbConnection.get_conn();). 
+			// You may retry to connect upto 3 times then raise an error if still cannot connect
 			Connection conn = DbConnection.get_conn();
 			Statement stm;
 			stm = conn.createStatement();
@@ -30,12 +32,15 @@ public class DeviceInfoController {
 			successFlag = 0;
 			e.printStackTrace();
 		}
+		// add finally clause to close the resultset, statement and connection. this will cause out of mem error if not implemented
 		
 		return deviceInfoList;
 	}
 	
 	public static void set_deviceInfo(ArrayList<DeviceInfo> data) {
 		try {
+			// you should handle the case when the app is not successfully connected to database (DbConnection.get_conn();). 
+			// You may retry to connect upto 3 times then raise an error if still cannot connect
 			Connection conn = DbConnection.get_conn();
 			String query = "INSERT INTO device_info (name, date_installed, cost," +
 					" report_interval, remarks) VALUES (?, ?, ?, ?, ?)";
@@ -54,6 +59,7 @@ public class DeviceInfoController {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		// add finally clause to close the statement and connection. this will cause out of mem error if not implemented
 	}
 	
 	public static int get_successFlag() {
