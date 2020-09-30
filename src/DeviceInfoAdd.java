@@ -128,6 +128,7 @@ public class DeviceInfoAdd extends JFrame implements ActionListener, PropertyCha
 					JOptionPane.showMessageDialog(this, "Invalid name!");
 					break;
 				}
+				// why use arraylist? adding is one device at a time?
 				ArrayList<DeviceInfo> data = new ArrayList<>();
 
 				DeviceInfo deviceInfo = new DeviceInfo(0, name.getText(),
@@ -152,7 +153,7 @@ public class DeviceInfoAdd extends JFrame implements ActionListener, PropertyCha
 	
 	public void propertyChange(PropertyChangeEvent e) {
 		Object source = e.getSource();
-		
+		// add validation of input. only numeric value is allowed
 		if (source == cost) {
 			try {
 				double num = Double.parseDouble(cost.getValue().toString());
