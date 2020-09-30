@@ -128,6 +128,7 @@ public class DeviceInfoAdd extends JFrame implements ActionListener, PropertyCha
 					JOptionPane.showMessageDialog(this, "Invalid name!");
 					break;
 				}
+				# why did you use ArrayList? saving is one device at a time.
 				ArrayList<DeviceInfo> data = new ArrayList<>();
 
 				DeviceInfo deviceInfo = new DeviceInfo(0, name.getText(),
@@ -152,7 +153,7 @@ public class DeviceInfoAdd extends JFrame implements ActionListener, PropertyCha
 	
 	public void propertyChange(PropertyChangeEvent e) {
 		Object source = e.getSource();
-		
+		# include validation if inout is a valid number/digit. only numbers are valid input
 		if (source == cost) {
 			try {
 				double num = Double.parseDouble(cost.getValue().toString());
