@@ -3,6 +3,7 @@ import java.util.Hashtable;
 import java.util.Scanner;
 
 public class ReadIni {
+	// you may use java class Properties in getting the config instead of using you own function. :)
 	public static Hashtable<String, String> read_ini(String fileName) {
 		Hashtable<String, String> dbIni = new Hashtable<String, String>();
 		
