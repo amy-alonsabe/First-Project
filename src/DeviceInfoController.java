@@ -8,6 +8,7 @@ public class DeviceInfoController {
 		ArrayList<DeviceInfo> deviceInfoList = new ArrayList<>();
 		
 		try {
+			// add checking if successfully connected to database. if not, retry 3 times. If still not connected raise an error
 			Connection conn = DbConnection.get_conn();
 			Statement stm;
 			stm = conn.createStatement();
@@ -30,12 +31,14 @@ public class DeviceInfoController {
 			successFlag = 0;
 			e.printStackTrace();
 		}
+		// add finally clause to close resultset, statement and connection. If this is omitted, it will result to OOM error
 		
 		return deviceInfoList;
 	}
 	
 	public static void set_deviceInfo(ArrayList<DeviceInfo> data) {
 		try {
+			// add checking if successfully connected to database. if not, retry 3 times. If still not connected raise an error
 			Connection conn = DbConnection.get_conn();
 			String query = "INSERT INTO device_info (name, date_installed, cost," +
 					" report_interval, remarks) VALUES (?, ?, ?, ?, ?)";
@@ -54,6 +57,7 @@ public class DeviceInfoController {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		// add finally clause to close resultset, statement and connection. If this is omitted, it will result to OOM error
 	}
 	
 	public static int get_successFlag() {
