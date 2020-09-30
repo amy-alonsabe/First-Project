@@ -18,7 +18,7 @@ public class DbConnection {
 					"jdbc:mysql://" + hostName + ":" + port + "/" + databaseName
 					+ "?useLegacyDatetimeCode=false&serverTimezone=Asia/Singapore",
 					username, password);
-			
+			// what is the use of successFlag
 			successFlag = 1;
 			System.out.println("SQL Connection established.");
 		}
