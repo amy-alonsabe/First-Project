@@ -19,6 +19,9 @@ public class DbConnection {
 		// Get the properties of .ini file.
 		Properties properties = load_ini();
 		
+		// you may use global variables for these database related variables. then set/read the inifile on load of the app
+		// so that you dont need to read the inifile every time you need to connect to the database
+		
 		// Extract the properties of .ini file.
 		String hostName = properties.getProperty("hostname");
 		String port = properties.getProperty("port");
