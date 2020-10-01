@@ -54,6 +54,7 @@ public class DeviceInfoController {
 		}
 		// Connection is null.
 		else {
+			//try to reconnect 3 times before raising the error (apply to all db connection)
 			JOptionPane.showMessageDialog(null, "Failed to load table.");
 			System.out.println("Failed to establish database connection.");
 			return null;
